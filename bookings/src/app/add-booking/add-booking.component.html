@@ -1,0 +1,90 @@
+<h3>Add-booking</h3> 
+
+<form #myForm= ngForm (ngSubmit)="myForm.valid &&  addBooking(myForm)">
+
+    <div class="form-group">
+        <label>userId</label>
+        <input type="number" name="userId" required minlength="4" ngModel #userIdCtrl=ngModel required class="form-control" >    
+    </div>
+    <div *ngIf="userIdCtrl.errors!=null && userIdCtrl.errors.required" class="error">
+        user-id is required
+    </div>
+    <div *ngIf="userIdCtrl.errors!=null && userIdCtrl.errors.minlength" class="error">
+        user-id is required
+    </div>
+
+    <div class="form-group">
+        <label>bookingId</label>
+        <input type="number" name="bookingId" required minlength="4" ngModel #bookingIdCtrl=ngModel required class="form-control" >    
+    </div>
+    <div *ngIf="bookingIdCtrl.errors!=null && bookingIdCtrl.errors.required" class="error">
+        booking-id is required
+    </div>
+    <div *ngIf="bookingIdCtrl.errors!=null && bookingIdCtrl.errors.minlength" class="error">
+        booking-id is required
+    </div>
+
+    <div class="form-group">
+        <label>bookingDate</label>
+        <input type="date" name="bookingDate" ngModel #bookingDateCtrl=ngModel required class="form-control" >    
+    </div>
+    <div *ngIf="bookingDateCtrl.errors!=null && bookingDateCtrl.errors.required" class="error">
+        bookingDate is required
+    </div>
+
+
+  <div class="form-group">
+        <label>ticketCost</label>
+        <input type="number" name="ticketCost" required minlength="4" ngModel #ticketCostCtrl=ngModel required class="form-control" >    
+    </div>
+    <div *ngIf="ticketCostCtrl.errors!=null && ticketCostCtrl.errors.required" class="error">
+        ticketCost is required
+    </div>
+    <div *ngIf="ticketCostCtrl.errors!=null && ticketCostCtrl.errors.minlength" class="error">
+        ticketCost is required
+    </div>
+   <div class="form-group">
+       <label>bookingState</label>
+       <input type="text" name="bookingState" required   ngModel #bookingStateCtrl=ngModel required class="form-control">
+    </div>
+    <div *ngIf="bookingStateCtrl.errors!=null && bookingStateCtrl.errors.required" class="error">
+        bookingState is required  
+    </div>
+   <div *ngIf="bookingStateCtrl.errors!=null && bookingStateCtrl.errors.minlength" class="error">
+        bookingState is required
+    </div>
+    <div class="form-group">
+        <label>pnrNumber</label>
+        <input type="text" name="pnrNumber" required   ngModel #pnrNumberCtrl=ngModel required class="form-control">
+     </div>
+     <div *ngIf="pnrNumberCtrl.errors!=null && pnrNumberCtrl.errors.required" class="error">
+         pnrNumber is required  
+     </div>
+    <div *ngIf="pnrNumberCtrl.errors!=null && pnrNumberCtrl.errors.minlength" class="error">
+         pnrNumber is required
+     </div>
+     <div class="form-group">
+        <label>scheduleflightId</label>
+        <input type="text" name="scheduleflightId" required   ngModel #scheduleflightIdCtrl=ngModel required class="form-control">
+     </div>
+     <div *ngIf="scheduleflightIdCtrl.errors!=null && scheduleflightIdCtrl.errors.required" class="error">
+        scheduleflightId is required  
+     </div>
+    <div *ngIf="scheduleflightIdCtrl.errors!=null && scheduleflightIdCtrl.errors.minlength" class="error">
+        scheduleflightId is required
+     </div>
+    <input type="submit" value="Submit" class="btn btn-primary">    
+</form>
+    
+    <br>
+    
+    <div *ngIf="booking!==undefined">
+     <h3>Added add-booking </h3>   
+     <br>booking is:{{booking.bookingId}}
+     <br>userid is :{{booking.userId}}
+     <br>bookingDate is:{{booking.bookingDate}}
+     <br>ticketcost is:{{booking.ticketCost}}
+     <br>bookingState is:{{booking.bookingState}}
+     <br>pnrNumber is :{{booking.pnrNumber}}
+     <br>scheduleflightId is :{{booking.scheduleflightId}}
+    </div>
